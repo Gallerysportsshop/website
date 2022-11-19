@@ -1,0 +1,7 @@
+﻿[Main]
+Version=2
+
+[CompPrint: TcxPropertiesStoreComponent]
+=
+SourceDPI=96
+
