@@ -972,6 +972,20 @@ li.nav-item ul li a:hover, li.nav-item ul li a:focus {
     font-weight: 800;
 }
 
+.policy{
+  margin-left: 1cm;
+}
+
+video{
+  margin-top: 0.5in;
+  margin-bottom: 0.5in;
+  margin-left: 1in;
+  margin-right: 1in;
+  height: 100%;
+  width: 50%;
+  display: flex;
+}
+
 /** footer **/
 
 footer {
