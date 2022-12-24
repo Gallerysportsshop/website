@@ -539,35 +539,11 @@ a:focus {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: auto;
     height: 100%;
     z-index: 3;
 }
 
-.arrival_section .arrival_bg_box img {
-    width: 50%;
-    height: 100%;
-    -o-object-fit: cover;
-    object-fit: cover;
-    -o-object-position: top left;
-    object-position: top left;
-}
-
-.arrival_section a {
-  display: inline-block;
-  padding: 10px 45px;
-  background-color: #f7444e;
-  border: 1px solid #f7444e;
-  color: #ffffff;
-  border-radius: 0;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-}
-
-.arrival_section a:hover {
-  background-color: transparent;
-  color: #fbd333;
-}
 
 .why_section .box {
     text-align: center;
