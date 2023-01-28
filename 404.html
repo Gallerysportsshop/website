@@ -153,12 +153,32 @@
 								<i class="far fa-sad-cry"></i>
 								<h1>Oops! Not Found.</h1>
 								<p>The page you requested for is not found.</p>
-								<p>To confirm your order select a button below</p>
-								<a href="index.html" class="boxed-btn" hidden>Back to Home</a>
+								
+								<a href="index.html" class="boxed-btn">Back to Home</a>
 
-								<a href="tel:+8801742320186" class="boxed-btn">Call Customer Care</a>
-								<a href="https://m.me/gallerysportsshopbd" class="boxed-btn">Send a Message to Messenger</a>
-								<a href="https://wa.me/+8801714383678" class="boxed-btn">Send a Message to Whatsapp</a>
+								<p>To confirm your order select a button below</p>
+								<div id="container">
+									<select id="contactOption">
+									  <option value="">Select an Option to confirm your order</option>
+									  <option value="call">Call Customer Care</option>
+									  <option value="messenger">Send a Message to Messenger</option>
+									  <option value="whatsapp">Send a Message to Whatsapp</option>
+									</select>
+									<input type="submit" value="Submit" onclick="submitForm()">
+								  </div>
+								  <script>
+									function submitForm() {
+									  var selectedOption = document.getElementById("contactOption").value;
+									  if (selectedOption === "call") {
+										window.location.href = "tel:+8801742320186";
+									  } else if (selectedOption === "messenger") {
+										window.location.href = "https://m.me/gallerysportsshopbd";
+									  } else if (selectedOption === "whatsapp") {
+										window.location.href = "https://wa.me/+8801714383678";
+									  }
+									}
+								  </script>
+								</div>
 							</div>
 						</div>
 					</div>
