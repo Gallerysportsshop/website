@@ -178,6 +178,30 @@
 									  }
 									}
 								  </script>
+								  <script>
+									function submitForm() {
+									  // form submission logic
+									}
+								  
+									const submitBtn = document.querySelector('input[type="submit"]');
+									const selectEl = document.querySelector('#contactOption');
+								  
+									selectEl.addEventListener('change', function() {
+									  const selectedOption = selectEl.value;
+								  
+									  if (selectedOption === 'call') {
+										submitBtn.value = 'Call';
+										submitBtn.className = 'call-icon';
+									  } else if (selectedOption === 'messenger' || selectedOption === 'whatsapp') {
+										submitBtn.value = 'Send Message';
+										submitBtn.className = 'messenger-icon';
+									  } else {
+										submitBtn.value = 'Submit';
+										submitBtn.className = '';
+									  }
+									});
+								  </script>
+								  
 								</div>
 							</div>
 						</div>
