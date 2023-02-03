@@ -262,14 +262,51 @@
 									productPrice.innerHTML = itemPrice;
 									row.appendChild(productName);
 									row.appendChild(productPrice);
-									tbody.appendChild(row);
+									tbody.appendChild(row);																								
 								  </script>
 							</tbody>
 							
 						</table>
-						<a href="404.html" class="boxed-btn">Place Order</a>
-										
-								
+						<a href="" class="boxed-btn" id="downloadPDF">Place Order</a>
+
+						<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+						<script>
+						const button = document.getElementById('downloadPDF');
+						button.addEventListener('click', function () {
+							var urlParams = new URLSearchParams(window.location.search);
+							var billingName = document.getElementById("billingName").value;
+							var billingEmail = document.getElementById("billingEmail").value;
+							var billingPhone = document.getElementById("billingPhone").value;
+							var billingAddress = document.getElementById("billingAddress").value;
+							var shippingName = document.getElementById("shippingName").value;
+							var shippingEmail = document.getElementById("shippingEmail").value;
+							var shippingPhone = document.getElementById("shippingPhone").value;
+							var shippingAddress = document.getElementById("shippingAddress").value;
+							var pdf = new jsPDF();
+							pdf.text(20, 10, 'Gallery Sports order details');
+							pdf.text(20, 12, '______________________' );
+							pdf.text(20, 20, '');
+							pdf.text(20, 30, 'Billing Name     : ' + billingName);
+							pdf.text(20, 40, 'Billing Email    : ' + billingEmail);
+							pdf.text(20, 50, 'Billing Address  : ' + billingAddress);
+							pdf.text(20, 60, 'Billing Phone    : ' + billingPhone);
+							pdf.text(20, 70, '');
+							pdf.text(20, 80, 'Shipping Name    : ' + shippingName);
+							pdf.text(20, 90, 'Shipping Email   : ' + shippingEmail);
+							pdf.text(20, 100, 'Shipping Address: ' + shippingAddress);
+							pdf.text(20, 110, 'Shipping Phone  : ' + shippingPhone);
+							pdf.text(20, 120, '');
+							pdf.text(20, 130, 'Product Name    : ' + itemName);
+							pdf.text(20, 140, 'Product Price   : ' + itemPrice);
+							pdf.text(20, 150, 'Deliver Charge  :');
+							pdf.text(20, 150, 'Total 		   :');
+							pdf.text(20, 70, '');
+							pdf.text(20, 160, 'Deliver Charge is 70 taka inside Dhaka');
+							pdf.text(20, 160, 'Deliver Charge is 140 taka inside Dhaka');
+							pdf.text(20, 160, 'Deliver Charge is free in pickup point');
+							pdf.save('order_details.pdf');
+						});
+						</script>
 					</div>
 				</div>
 			</div>
