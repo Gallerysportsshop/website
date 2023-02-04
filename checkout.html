@@ -236,11 +236,16 @@
 						    </div>
 						  </div>
 						</div>
-
 					</div>
 				</div>
 
 				<div class="col-lg-4">
+					<select id='deliverLocation'>
+						<option>Select Deliver Location</option>
+						<option value='Dhaka'>Inside Dhaka</option>
+						<option value='Outside Dhaka'>Outside Dhaka</option>
+						<option value='Pickup Point'>Pickup Point</option>
+					</select>
 					<div class="order-details-wrap">
 						<table class="order-details">
 							<thead>
@@ -270,10 +275,12 @@
 									}
 								</script>
 							</tbody>
+							<br>
 							<b>Press the <span style="color: brown;">'Place Order'</span>	button at first.</b>
+							
 						</table>
 						<a href="" class="boxed-btn" id="downloadPDF">Place Order</a>
-
+	
 						
 						<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
 						<script>							
@@ -288,6 +295,8 @@
 							var shippingEmail = document.getElementById("shippingEmail").value;
 							var shippingPhone = document.getElementById("shippingPhone").value;
 							var shippingAddress = document.getElementById("shippingAddress").value;
+							var deliverLocation = document.getElementById("deliverLocation");
+							var selectOption = document.getElementById("deliverLocation");
 							var pdf = new jsPDF();
 							var logo = new Image();
 							logo.src = 'assets/img/pdf img.png';
@@ -317,9 +326,18 @@
 							pdf.text(20, 120, '');
 							pdf.text(20, 130, 'Product Name: ' + itemName);
 							pdf.text(20, 140, 'Product Price:    BDT ' + itemPrice);
-							pdf.text(20, 150, 'Deliver Charge: BDT');
-							pdf.text(20, 151, '_________________');
-							pdf.text(20, 160, 'Total:');
+							var deliverCharge = 0;
+							if(selectOption.value === "Inside Dhaka") {
+								deliverCharge = 70;
+							} else if(selectOption.value === "Outside Dhaka") {
+								deliverCharge = 140;
+							} else if(selectOption.value === "Pickup Point") {
+								deliverCharge = 0;
+							}
+							pdf.text(20, 150, 'Deliver Charge: BDT ' + deliverCharge);
+							pdf.text(20, 151, '_____________________');
+							var total = itemPrice +++ deliverCharge;
+							pdf.text(20, 160, 'Total:                 BDT ' + total);
 							pdf.text(20, 170, '');
 							pdf.text(20, 180, 'Deliver Charge is 70 taka inside Dhaka');
 							pdf.text(20, 190, 'Deliver Charge is 140 taka inside Dhaka');
