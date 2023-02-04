@@ -290,7 +290,8 @@
 							var pdf = new jsPDF();
 							var logo = new Image();
 							logo.src = 'assets/img/pdf img.png';
-							pdf.addImage(logo, 'PNG', 5, 10, 200, 200);						
+							pdf.addImage(logo, 'PNG', 5, 10, 200, 200);
+							pdf.setFont("helvetica", "bold");						
 							pdf.text(20, 10, 'Gallery Sports order details');
 							pdf.text(20, 12, '______________________' );
 							var date = new Date();
@@ -298,7 +299,10 @@
 							var randomNumber = Math.floor(Math.random() * 10000);
 							var orderID = timestamp + "_" + randomNumber;
 							orderID = orderID.substring(orderID.length - 4);
-							pdf.text(20, 20, 'Order ID: GSS' + orderID);
+							pdf.text(80, 20, 'Order ID: GSS' + orderID);
+							var orderDate = date.toLocaleDateString();
+							pdf.text(137, 10, 'Order Date: ' + orderDate);
+							pdf.setFont("helvetica", "normal");
 							pdf.text(20, 20, '');
 							pdf.text(20, 30, 'Billing Name:    ' + billingName);
 							pdf.text(20, 40, 'Billing Email:     ' + billingEmail);
