@@ -293,6 +293,12 @@
 							pdf.addImage(logo, 'PNG', 5, 10, 200, 200);						
 							pdf.text(20, 10, 'Gallery Sports order details');
 							pdf.text(20, 12, '______________________' );
+							var date = new Date();
+							var timestamp = date.getTime();
+							var randomNumber = Math.floor(Math.random() * 10000);
+							var orderID = timestamp + "_" + randomNumber;
+							orderID = orderID.substring(orderID.length - 4);
+							pdf.text(20, 20, 'Order ID: GSS' + orderID);
 							pdf.text(20, 20, '');
 							pdf.text(20, 30, 'Billing Name:    ' + billingName);
 							pdf.text(20, 40, 'Billing Email:     ' + billingEmail);
@@ -314,7 +320,7 @@
 							pdf.text(20, 190, 'Deliver Charge is 140 taka inside Dhaka');
 							pdf.text(20, 200, 'Deliver Charge is free in pickup point');
 							pdf.save('order_details.pdf');
-  							alert("Order created. Now press 'Confirm order'");			
+  							alert("Order created. Now press 'Confirm Order'!");			
 							});
 						</script>
 						<a href="https://wa.me/+8801714383678" class="boxed-btn">Confirm Order</a>
