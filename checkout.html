@@ -255,23 +255,27 @@
 									var urlParams = new URLSearchParams(window.location.search);
 									var itemName = urlParams.get("product_name");
 									var itemPrice = urlParams.get("price");
-									var tbody = document.getElementsByClassName("order-details-body")[0];
-									var row = document.createElement("tr");
-									var productName = document.createElement("td");
-									var productPrice = document.createElement("td");
-									productName.innerHTML = itemName;
-									productPrice.innerHTML = itemPrice;
-									row.appendChild(productName);
-									row.appendChild(productPrice);
-									tbody.appendChild(row);																					
-								  </script>
+									if (!itemName || !itemPrice) {
+										alert("No Product is selected");
+									} else {
+										var tbody = document.getElementsByClassName("order-details-body")[0];
+										var row = document.createElement("tr");
+										var productName = document.createElement("td");
+										var productPrice = document.createElement("td");
+										productName.innerHTML = itemName;
+										productPrice.innerHTML = itemPrice;
+										row.appendChild(productName);
+										row.appendChild(productPrice);
+										tbody.appendChild(row);
+									}
+								</script>
 							</tbody>
 							<b>Press the <span style="color: brown;">'Place Order'</span>	button at first.</b>
 						</table>
 						<a href="" class="boxed-btn" id="downloadPDF">Place Order</a>
 						
 						<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
-						<script>
+						<script>							
 						const button = document.getElementById('downloadPDF');
 						button.addEventListener('click', function () {
 							var urlParams = new URLSearchParams(window.location.search);
@@ -284,6 +288,9 @@
 							var shippingPhone = document.getElementById("shippingPhone").value;
 							var shippingAddress = document.getElementById("shippingAddress").value;
 							var pdf = new jsPDF();
+							var logo = new Image();
+							logo.src = 'assets/img/pdf img.png';
+							pdf.addImage(logo, 'PNG', 5, 10, 200, 200);						
 							pdf.text(20, 10, 'Gallery Sports order details');
 							pdf.text(20, 12, '______________________' );
 							pdf.text(20, 20, '');
@@ -307,7 +314,7 @@
 							pdf.text(20, 190, 'Deliver Charge is 140 taka inside Dhaka');
 							pdf.text(20, 200, 'Deliver Charge is free in pickup point');
 							pdf.save('order_details.pdf');
-  							alert("Order created. Now press 'Confrim order'");			
+  							alert("Order created. Now press 'Confirm order'");			
 							});
 						</script>
 						<a href="https://wa.me/+8801714383678" class="boxed-btn">Confirm Order</a>
