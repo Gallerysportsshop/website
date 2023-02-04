@@ -273,6 +273,7 @@
 							<b>Press the <span style="color: brown;">'Place Order'</span>	button at first.</b>
 						</table>
 						<a href="" class="boxed-btn" id="downloadPDF">Place Order</a>
+
 						
 						<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
 						<script>							
@@ -315,8 +316,8 @@
 							pdf.text(20, 110, 'Shipping Phone:    ' + shippingPhone);
 							pdf.text(20, 120, '');
 							pdf.text(20, 130, 'Product Name: ' + itemName);
-							pdf.text(20, 140, 'Product Price:    ' + itemPrice);
-							pdf.text(20, 150, 'Deliver Charge:');
+							pdf.text(20, 140, 'Product Price:    BDT ' + itemPrice);
+							pdf.text(20, 150, 'Deliver Charge: BDT');
 							pdf.text(20, 151, '_________________');
 							pdf.text(20, 160, 'Total:');
 							pdf.text(20, 170, '');
