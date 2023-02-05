@@ -297,35 +297,34 @@
 							var selectOption = document.getElementById("deliverLocation");
 							var pdf = new jsPDF();
 							var logo = new Image();
-							logo.src = 'assets/img/pdf img.png';
-							pdf.addImage(logo, 'PNG', 5, 10, 200, 200);
+							logo.src = 'assets/img/pdf.jpg';
+							pdf.addImage(logo, 'PNG', 0, 0, 210, 300);
 							pdf.setFont("helvetica", "bold");						
-							pdf.text(20, 10, 'Gallery Sports order details');
-							pdf.text(20, 12, '________________________' );
 							var date = new Date();
 							var timestamp = date.getTime();
 							var randomNumber = Math.floor(Math.random() * 10000);
 							var orderID = timestamp + "_" + randomNumber;
 							orderID = orderID.substring(orderID.length - 4);
-							pdf.text(80, 20, 'Order ID: GSS' + orderID);
-							
+							pdf.text(22, 55, 'Order ID: GSS-' + orderID);	
 							var orderDate = date.toLocaleDateString();
 							var orderDate = date.toLocaleDateString('en-GB', { day: 'numeric', month: 'numeric', year: 'numeric' });
-							pdf.text(137, 10, 'Order Date: ' + orderDate);
+							pdf.setFont("Arial", "Normal");
+							pdf.setFontSize("10");
+							pdf.text(90, 10, 'Order Date: ' + orderDate);
 							pdf.setFont("helvetica", "normal");
-							pdf.text(20, 20, '');
-							pdf.text(20, 30, 'Billing Name:    ' + billingName);
-							pdf.text(20, 40, 'Billing Email:     ' + billingEmail);
-							pdf.text(20, 50, 'Billing Address: ' + billingAddress);
-							pdf.text(20, 60, 'Billing Phone:    ' + billingPhone);
-							pdf.text(20, 70, '');
-							pdf.text(20, 80, 'Shipping Name:     ' + shippingName);
-							pdf.text(20, 90, 'Shipping Email:      ' + shippingEmail);
-							pdf.text(20, 100, 'Shipping Address: ' + shippingAddress);
-							pdf.text(20, 110, 'Shipping Phone:    ' + shippingPhone);
-							pdf.text(20, 120, '');
-							pdf.text(20, 130, 'Product Name: ' + itemName);
-							pdf.text(20, 140, 'Product Price:    BDT ' + itemPrice);
+							pdf.setFontSize("12");
+							pdf.text(22, 70, 'Billing Name:    ' + billingName);
+							pdf.text(22, 80, 'Billing Email:     ' + billingEmail);
+							pdf.text(22, 90, 'Billing Address: ' + billingAddress);
+							pdf.text(22, 100, 'Billing Phone:    ' + billingPhone);
+							pdf.text(22, 110, '');
+							pdf.text(22, 120, 'Shipping Name:     ' + shippingName);
+							pdf.text(22, 130, 'Shipping Email:      ' + shippingEmail);
+							pdf.text(22, 140, 'Shipping Address: ' + shippingAddress);
+							pdf.text(22, 150, 'Shipping Phone:    ' + shippingPhone);
+							pdf.text(22, 160, '');
+							pdf.text(22, 170, 'Product Name: ' + itemName);
+							pdf.text(22, 180, 'Product Price:    BDT ' + itemPrice);
 							var deliverCharge = 0;
 							if(selectOption.value === "Dhaka") {
 								deliverCharge = 70;
@@ -334,15 +333,11 @@
 							} else if(selectOption.value === "Pickup Point") {
 								deliverCharge = 0;
 							}
-							pdf.text(20, 150, 'Deliver Charge:  BDT ' + deliverCharge);
-							pdf.text(20, 151, '_____________________');
+							pdf.text(22, 190, 'Deliver Charge:  BDT ' + deliverCharge);
+							pdf.text(22, 191, '_____________________');
 							var total = itemPrice +++ deliverCharge;
-							pdf.text(20, 160, 'Total:                  BDT ' + total);
-							pdf.text(20, 170, '');
-							pdf.text(20, 180, 'Deliver Charge is 70 taka inside Dhaka');
-							pdf.text(20, 190, 'Deliver Charge is 140 taka inside Dhaka');
-							pdf.text(20, 200, 'Deliver Charge is free in pickup point');							
-							pdf.save('Order_' + orderID + '.pdf');
+							pdf.text(22, 200, 'Total:                  BDT ' + total);					
+							pdf.save('Order_'+orderID+'.pdf');
   							alert("Order created. Now press 'Confirm Order'!");			
 							});
 						</script>
