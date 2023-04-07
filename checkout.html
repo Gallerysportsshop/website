@@ -342,7 +342,7 @@
                                 pdf.text(22, 160, '');
                                 pdf.text(22, 170, 'Product Name: ' + itemName);
                                 pdf.text(22, 180, 'Product Price:    BDT ' + itemPrice);
-                                var couponCode = 0;
+                                var couponCode = itemPrice * 0.05;
                                 pdf.text(22, 190, 'Discount:            BDT  ' + couponCode);
                                 var deliverCharge = 0;
                                 if (selectOption.value === "Dhaka") {
