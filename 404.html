@@ -168,6 +168,8 @@
 									  <option value="call">Call Customer Care</option>
 									  <option value="messenger">Send a Message to Messenger</option>
 									  <option value="whatsapp">Send a Message to Whatsapp</option>
+                                      <option value="instagram">Send a Message to Instagram</option>
+                                      <option value="telegram">Send a Message to Telegram</option>
 									</select>
                                 <input type="submit" value="Submit" onclick="submitForm()">
                             </div>
@@ -178,12 +180,17 @@
                                 function submitForm() {
                                     var selectedOption = document.getElementById("contactOption").value;
                                     if (selectedOption === "call") {
-                                        window.location.href = "tel:+8801742320186";
+                                        window.location.href = "tel:+8809639101701";
                                     } else if (selectedOption === "messenger") {
                                         window.location.href = "https://m.me/gallerysportsshopbd";
                                     } else if (selectedOption === "whatsapp") {
-                                        window.location.href = "https://wa.me/+8801714383678";
+                                        window.location.href = "https://wa.me/+8801753557125?text=I%20have%20send%20this%20message%20to%20you%20from%20your%20website%20not%20found%20(404)%20page.";
+                                    } else if (selectedOption === "instagram") {
+                                        window.location.href = "https://www.instagram.com/gallerysportsshop/";
+                                    } else if (selectedOption === "telegram") {
+                                        window.location.href = "https://t.me/gallerysportsbot";
                                     }
+                                    
                                 }
                                 const submitBtn = document.querySelector('input[type="submit"]');
                                 const selectEl = document.querySelector('#contactOption');
@@ -236,7 +243,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div
     <!-- end logo carousel -->
         
 
@@ -256,8 +263,7 @@
                         <ul>
                             <li>Jahurul Islam City, Aftabnagar Dhaka-1212, Bangladesh</li>
                             <li><a href="mailto:gallerysportsshop@gmail.com">gallerysportsshop@gmail.com</a></li>
-                            <li><a href="tel:+880-1725427493">01725427493</a></li>
-                            <li><a href="tel:+880-1742320186">01742320186</a></li>
+                            <li><a href="tel:+8809639101701">9639101701</a></li>
                         </ul>
                     </div>
                 </div>
